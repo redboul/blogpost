@@ -2,11 +2,22 @@
 
 ### tl;dr
 
-At Bonitasoft, developpers are writing the product documentation but the current documentation tool is based on Drupal a CMS plaftorm. However, this tool is not meant to be used be developpers. Developpers usually like to have hands dirty and in the engine and it is not what Drupals offers.  
-As developpers, we decided to take the hand on the documentation tool and we wanted it to have the features we use daily like continuous integration, source code mamangement to name a few.
-At first, we thought of 
-Looking for a new magical documentation site/framework/tool/potatoe that meets every requirement is quite difficult.  
-We have therefore... created a new one!
+At Bonitasoft, developpers are writing the product documentation. But current documentation tool is based on Drupal a CMS plaftorm.  
+However, this tool is not meant to be used be developpers.  
+Developpers usually like to have dirty hands and in the engine and it is not what Drupals offers.
+
+We, therefore, decided to take the hand on the documentation tool.  
+We wanted it to have the features we use daily:
+* Pull Request
+* Review by pair
+* Continuous Integration
+* Versioning
+* Hosted on GitHub
+* Possible to open to contributors (internal or external)
+
+At first, we looked for a new documentation site/framework/tool/potatoe that would allow us to do all of this.
+We failed (maybe we are quite demandine...)  
+We have decided to creat a one!
 
 ## Motivation
 
@@ -33,19 +44,7 @@ It also provides a lot of useless feature we do not actually need or that weight
 Maybe, there has been someday where we had the knowledge to lighten up the administration portal to ease the content management process but not anymore.  
 Knowing the drawbacks of our the current site. We wanted to get rid of it.
 
-## Document like we code
-
-We are using git and github to manage our source code and we felt it natural to have the documentation content being hosted the same way.  
-At first, we even thought of having the documentation being directly written in the source code and have it extracted with tools like doxygen or dgeni or simple javadoc. But given the amount of project/repositories we have, we gave that idea up...
-
-On a second thought, we wanted to create the documentation in markdown format managed via github and have the documentation site generated from it.  
-We looked through differents frameworks/tools that would do the work for us: 
-
- * Sphinx/ReadTheDoc
- * Gitbook
- * Jekyll
-
-## Requirements
+### Requirements
 
 We listed what was slowing us down with the current docummentation tool but we needed to admit that some of the Drupal features are very useful and we need to confront these essential feature to our documentation candidates.  
 
@@ -62,10 +61,25 @@ By priority, here they are :
  * Nice to have
    * Use our authentication system
 
-## Global work to do
+### Global work to do
 
 On the overall view of every tool, we knew that we needed to some custom templating so we needed to ramp up on the tool we would chose.  
 We also needed to ramp up on the integration of this tool in a push to production environment and the lesser technology we add to our production environment, the better.
+
+
+### Document like we code
+
+We are using git and github to manage our source code and we felt it natural to have the documentation content being hosted the same way.  
+At first, we even thought of having the documentation being directly written in the source code and have it extracted with tools like doxygen or dgeni or simple javadoc. But given the amount of project/repositories we have, we gave that idea up...
+
+On a second thought, we wanted to create the documentation in markdown format managed via github and have the documentation site generated from it.  
+We looked through differents frameworks/tools that would do the work for us: 
+
+ * Sphinx/ReadTheDoc
+ * Gitbook
+ * Jekyll
+
+## Tools
 
 ### Sphinx/ReadTheDoc
 
@@ -109,22 +123,12 @@ The solution would have to add some out-of-the-box plugin that would send reques
 
 Knowing that the custom templating would still be needed, it would have required us to ramp up on the Gitbook templating engine. Therefore, we have decided to create our own tool...
 
-## Yadt (Yet another documentation tool)
+## Our own tool : Let's get some work then
 
 We decided to create our own static site, generating html static from the github repository using Single page application in order to only load the appropriate content for each clic (just like Gitbook does).  
 As we are very familiar with AngularJS, we decided to have it as our site framework.
 
-### Requirements
-
-#### Markdown editing
-
-The starting point is that we need to be able to edit content from a github repository in the markdown format for multiple version of the product.  
-The most logical way to do it was to have a branch for each version we manage.  
-It would allow us to easily port changes from a version to another using merge, rebase or cherry-pick.
-
-For each version, a tool converts it to html and put it a dedicated folder. 
-
-#### Fast
+### Performance
 
 One of the key feature for us as developper is to have pages served as fast as possible.  
 So for AngularJS to load the generated html, we used some simple **ng-include** tags pointing to the page the user wants to load.
