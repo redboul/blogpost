@@ -3,11 +3,11 @@
 ### tl;dr
 
 At Bonitasoft, developpers are writing the product documentation. But current documentation tool is based on Drupal a CMS plaftorm.  
-However, this tool is not meant to be used be developpers.  
+However, this tool is not meant to be used by developpers.  
 Developpers usually like to have dirty hands and in the engine and it is not what Drupals offers.
 
 We, therefore, decided to take the hand on the documentation tool.  
-We wanted it to have the features we use daily:
+We wanted it to have the features we use daily to produce code:
 * Pull Request
 * Review by pair
 * Continuous Integration
@@ -16,17 +16,17 @@ We wanted it to have the features we use daily:
 * Possible to open to contributors (internal or external)
 
 At first, we looked for a new documentation site/framework/tool/potatoe that would allow us to do all of this.
-We failed (maybe we are quite demandine...)  
-We have decided to creat a one!
+We failed (maybe we are quite demanding...)  
+We have decided to create one!
 
 ## Motivation
 
 We currently use Drupal to host all of our contents (customer, partnership, community portals) and for the documentation contents too.  
 It allows us to use several plugins to manage features like search, authentication, taxonomy and so on.  
 It is a great tool but here in the R&D team, we wanted to use a simpler way to manage the documentation content and specifically not writing complex html.  
-Furthermore, Drupal stores all its content on database so the only simple way to edit the content is to use the drupal management portal which can be cumbersome.  
+Furthermore, Drupal stores all its content in a database so the only simple way to edit the content is to use the drupal management portal which can be cumbersome.  
 
-It also provides a lot of useless feature we do not actually need or that weighted our day to day use :
+It also provides a lot of useless features we do not actually need or that weighted our day to day usage :
 
  * documentation site view
    * Full page reload on each click
@@ -42,28 +42,28 @@ It also provides a lot of useless feature we do not actually need or that weight
    * loads of unknown properties (meta-tags, url path settings, publishing information,...)
 
 Maybe, there has been someday where we had the knowledge to lighten up the administration portal to ease the content management process but not anymore.  
-Knowing the drawbacks of our the current site. We wanted to get rid of it.
+Knowing the drawbacks of our current site. We wanted to get rid of it.
 
 ### Requirements
 
-We listed what was slowing us down with the current docummentation tool but we needed to admit that some of the Drupal features are very useful and we need to confront these essential feature to our documentation candidates.  
+We listed what was slowing us down with the current docummentation tool but we needed to admit that some of the Drupal features are very useful and we need to confront these essential features to our documentation candidates.  
 
 By priority, here they are :
 
  * Must have
    * Markdown or similar format (asciidoc, reStructuredText,...)
    * Full text search
-   * Corporate layout (the more identical to the current one, the better)
+   * Corporate layout (the closer to the current one, the better)
    * Inject beacons
    * Multiple versions
    * Taxonomy management/navigation
-   * Hosted on our side
+   * Hosted on our site
  * Nice to have
    * Use our authentication system
 
 ### Global work to do
 
-On the overall view of every tool, we knew that we needed to some custom templating so we needed to ramp up on the tool we would chose.  
+On the overall view of every tool, we knew that we needed to do some custom templating so we needed to ramp up on the tool we would choose.  
 We also needed to ramp up on the integration of this tool in a push to production environment and the lesser technology we add to our production environment, the better.
 
 
@@ -79,7 +79,7 @@ We looked through differents frameworks/tools that would do the work for us:
  * Gitbook
  * Jekyll
 
-## Tools
+## Evaluated Tools
 
 ### Sphinx/ReadTheDoc
 
